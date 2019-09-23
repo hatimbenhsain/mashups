@@ -18,7 +18,7 @@ function setup(){
 	};
 	function goWiki(){
 		let term=userInput.value();
-		let params.srsearch=userInput.value();
+		params["srsearch"]=userInput.value();
 		//console.log(term);
 		let url=searchUrl + term;
 		url2 = url2 + "?origin=*";
@@ -28,9 +28,10 @@ function setup(){
 }
 
 function gotData(data){
-	fetch(url)
-    .then(function(response){return response.json();});
-	console.log(response.query.search[0].title);
+	fetch(url2)
+    .then(function(response){return response.json();})
+    .then(function(response){console.log(response.query.search[0].title);});
+	
 	// names.push(data.query.search[0].title);
 	// people[names[names.length-1]]=new Person();
 	// var title=data.query.search[0].title.replace(/\s+/g,'_');
